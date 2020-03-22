@@ -1,27 +1,21 @@
-# TestingAngular
+This is a sample project of basic VS Code debugging configuration to debug Angular *.spec.ts files.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+Reference: https://github.com/microsoft/vscode-recipes/tree/master/Angular-CLI
 
-## Development server
+To debug unit tests (check `VSCodeAngularDebugging.gif`):
+1. Run 'npm run test' in the terminal. Karma Chrome window should appear.
+2. From the debug pane select `ng test`, press F5 or press the green button. New chrome window should appear.
+3. Set a breakpoint in app.component.spec.ts.
+4. Refresh the `http://localhost:9876/debug.html` Chrome window
+5. The breakpoint should be hit.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+There may be an issue with the breakpoint - it's not hit or it's marked as inactive. In this case:
+1. Follow all the steps above
+2. In the second chrome window open DevsToools
+3. Open `Sources` tab
+4. Open `top/localhost:9876/_karma_webpack_/src/app/app.component.spec.ts`
+5. Put a breakpoint 
+6. Refresh the `http://localhost:9876/debug.html` Chrome window
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+VS Code breakpoints should start working again.
